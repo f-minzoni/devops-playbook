@@ -1,0 +1,27 @@
+---
+- name: install Docker CE on Ubuntu 16.04
+  hosts: prod
+  
+  tasks:
+  - name: install prerequisites
+    apt: name={{ item }} update_cache=yes state=present
+    with_items:
+        - "apt-transport-https"
+        - "ca-certificates"
+        - "curl"
+        - "software-properties-common"
+
+  - name: import Docker GPG key
+    apt_key: url=https://download.docker.com/linux/ubuntu/gpg state=present
+
+  - name: add Docker repository
+    apt_repository: repo="deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable" state=present
+
+  - name: install Docker CE
+    apt: name=docker-ce update_cache=yes state=present
+
+  - name: make sure Docker is stopped
+    service: name=docker state=stopped
+
+  - name: remove node key
+    file: path=/etc/docker/key.json state=absent
