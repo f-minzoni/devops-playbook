@@ -1,0 +1,16 @@
+{
+	"builders": [{
+		"type": "openstack",
+		"identity_endpoint": "https://api.entercloudsuite.com/v2.0",
+		"tenant_name": "",
+		"username": "",
+		"password": "",
+		"region": "nl-ams1",
+		"image_name": "server-docker",
+		"source_image": "6a1e4c2b-d663-492a-a828-205f4b28d9e0",
+		"ssh_username": "ubuntu",
+		"flavor": "e3standard.x2",
+		"networks": [ "network_id" ],
+		"floating_ip_pool": "PublicNetwork"
+    }]
+}
