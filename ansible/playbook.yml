@@ -1,7 +1,6 @@
 ---
 - name: install Docker CE on Ubuntu 16.04
   become: true
-  hosts: prod
   
   tasks:
   - name: install prerequisites
