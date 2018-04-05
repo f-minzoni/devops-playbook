@@ -16,7 +16,7 @@
 	"provisioners": [
 		{
 		   "type": "shell",
-		   "inline": ["sudo apt-get update && sudo apt-get upgrade -y &&    sudo apt-get install -y python2.7 python && sudo apt-get clean"]
+		   "inline": ["sudo apt-get update && sudo apt-get upgrade -y &&    sudo apt-get install -y python2.7 python-minimal && sudo apt-get clean"]
 		},
 		{
 		   "type": "ansible",
